@@ -16,9 +16,7 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.policies.html
  */
 
-
 module.exports.policies = {
-
   /***************************************************************************
    *                                                                          *
    * Default policy for all controllers and actions (`true` allows public     *
@@ -26,42 +24,41 @@ module.exports.policies = {
    *                                                                          *
    ***************************************************************************/
 
-   '*': 'authToken',
+  "*": true,
 
-   AuthController: {
-     login: 'noCache'
-   },
+  AuthController: {
+    login: "noCache",
+  },
 
   AssetController: {
-    create: 'authToken',
-    update: 'authToken',
-    delete: 'authToken',
-    download: 'noCache'
+    create: "authToken",
+    update: "authToken",
+    delete: "authToken",
+    download: "noCache",
   },
 
   ChannelController: {
-    create: 'authToken',
-    update: 'authToken',
-    delete: 'authToken'
+    create: "authToken",
+    update: "authToken",
+    delete: "authToken",
   },
 
   FlavorController: {
-    create: 'authToken',
-    update: 'authToken',
-    delete: 'authToken'
+    create: "authToken",
+    update: "authToken",
+    delete: "authToken",
   },
 
   VersionController: {
-    create: 'authToken',
-    update: 'authToken',
-    delete: 'authToken',
-    availability: 'authToken',
-    redirect: 'noCache',
-    list: 'noCache',
-    general: 'noCache',
-    windows: 'noCache',
-    releaseNotes: 'noCache',
-    electronUpdaterWin: 'noCache',
-    electronUpdaterMac: 'noCache'
-  }
+    create: "authToken",
+    update: "authToken",
+    delete: "authToken",
+    availability: "authToken",
+    redirect: "noCache",
+    general: "noCache",
+    windows: "noCache",
+    releaseNotes: "noCache",
+    electronUpdaterWin: "noCache",
+    electronUpdaterMac: "noCache",
+  },
 };

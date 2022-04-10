@@ -6,11 +6,11 @@
  * @docs        :: http://sailsjs.org/#!/documentation/concepts/Policies
  *
  */
-module.exports = function(req, res, next) {
+module.exports = function (req, res, next) {
   var token;
 
   if (req.headers && req.headers.authorization) {
-    var parts = req.headers.authorization.split(' ');
+    var parts = req.headers.authorization.split(" ");
     if (parts.length == 2) {
       var scheme = parts[0],
         credentials = parts[1];
@@ -19,20 +19,18 @@ module.exports = function(req, res, next) {
         token = credentials;
       }
     } else {
-      return res.forbidden('Wrong authorization format.');
+      return res.forbidden("Wrong authorization format.");
     }
-  } else if (req.param('token')) {
-    token = req.param('token');
+  } else if (req.param("token")) {
+    token = req.param("token");
     // We delete the token from param to not mess with blueprints
     delete req.query.token;
-  } else if (req.cookies && req.cookies.authToken) {
-    token = req.cookies.authToken;
-   } else {
-    return res.forbidden('No authorization header found.');
+  } else {
+    return res.forbidden("No authorization header found.");
   }
 
-  AuthToken.verifyToken(token, function(err, decodedToken) {
-    if (err) return res.forbidden('Invalid Token.');
+  AuthToken.verifyToken(token, function (err, decodedToken) {
+    if (err) return res.forbidden("Invalid Token.");
     req.token = decodedToken.sub;
     next();
   });
