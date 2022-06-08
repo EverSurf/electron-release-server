@@ -1,20 +1,18 @@
 /**
  * Channel.js
  *
- * @description :: Various release channel (ex. stable & dev)
+ * @description :: Various release channel (ex. release & dev)
  * @docs        :: http://sailsjs.org/#!documentation/models
  */
 
 module.exports = {
-
   attributes: {
     name: {
-      type: 'string',
+      type: "string",
       primaryKey: true,
       unique: true,
-      required: true
-    }
+      required: true,
+    },
   },
-  autoPK: false
-  
+  autoPK: false,
 };
