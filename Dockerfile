@@ -1,4 +1,5 @@
 FROM node:12
+RUN apt update && apt install -y cmake
 
 # Create app directory
 WORKDIR /usr/src/electron-release-server
