@@ -25,7 +25,9 @@ module.exports = function(req, res, next) {
     token = req.param('token');
     // We delete the token from param to not mess with blueprints
     delete req.query.token;
-  } else {
+  } else if (req.cookies && req.cookies.authToken) {
+    token = req.cookies.authToken;
+   } else {
     return res.forbidden('No authorization header found.');
   }
 
