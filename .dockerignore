@@ -19,6 +19,8 @@ nbproject
 .idea
 .node_history
 Dockerfile
-docker-compose.json
+docker-compose.yaml
+.env
+.env.pub
 releases/
 postgresql/
